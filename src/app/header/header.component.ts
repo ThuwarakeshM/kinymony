@@ -8,6 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   menuActive = false;
 
+  links = [
+    { name: 'Politics', link: 'politics' },
+    { name: 'Cinema', link: 'Cinema' },
+    { name: 'Sports', link: 'Sports' },
+    { name: 'Medicine', link: 'Medicine' },
+    { name: 'General', link: 'General' },
+  ];
+
   constructor() { }
 
   ngOnInit() {

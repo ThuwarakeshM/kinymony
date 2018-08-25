@@ -1,14 +1,10 @@
 <nav>
-  <div class="brand nav-container">KinyMony</div>
+  <div class="brand nav-container"><a routerLink="/">KinyMony</a></div>
   <div class="menu-toggle nav-container" (click)="toggleMenu()">
     Menu
   </div>
   <div [ngClass]="{'menu': true, 'nav-container': true, 'active': menuActive}">
-    <div class="menu-item">Politics</div>
-    <div class="menu-item">Cinema</div>
-    <div class="menu-item">Sports</div>
-    <div class="menu-item">Medicine</div>
-    <div class="menu-item">General</div>
+    <div class="menu-item" *ngFor="let ln of links"><a [routerLink]="ln.link">{{ln.name}}</a></div>
   </div>
 
 </nav>
