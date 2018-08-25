@@ -1,0 +1,37 @@
+.brand {
+    font-size: 25px;
+}
+
+.nav-container {
+    display: inline;
+}
+
+.menu-toggle {
+    display: none;
+    float: right;
+}
+.menu {
+    margin-left: 1em;
+}
+
+.menu-item {
+    margin-left: 1em;
+    display: inline;
+}
+
+@media screen and (max-width: 900px) {
+    .menu-toggle {
+        display: inline
+    }
+
+    .menu {
+        display: none;
+    }
+    .active {
+        display: block;
+    }
+    .menu-item {
+        display: block;
+        text-align: center;
+    }
+  }
