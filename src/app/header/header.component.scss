@@ -2,6 +2,17 @@
     font-size: 25px;
 }
 
+nav {
+    color:aliceblue;
+    background: #353a40;
+    padding: .25em;
+    overflow: hidden;
+    a {
+        text-decoration: none;
+        color: aliceblue;
+    }
+}
+
 .nav-container {
     display: inline;
 }
@@ -17,6 +28,11 @@
 .menu-item {
     margin-left: 1em;
     display: inline;
+    padding: .5em;
+    border-radius: 10%;
+}
+.menu-item:hover {
+    background: #21252a;
 }
 
 @media screen and (max-width: 900px) {
