@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-collection',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollectionComponent implements OnInit {
 
-  constructor() { }
+  cat: string;
+
+  constructor(private router: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    this.router.paramMap.subscribe((ref) => {
+      this.cat = ref.get('cat');
+    });
   }
 
 }

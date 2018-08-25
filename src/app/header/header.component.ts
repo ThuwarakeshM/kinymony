@@ -10,10 +10,10 @@ export class HeaderComponent implements OnInit {
 
   links = [
     { name: 'Politics', link: 'politics' },
-    { name: 'Cinema', link: 'Cinema' },
-    { name: 'Sports', link: 'Sports' },
-    { name: 'Medicine', link: 'Medicine' },
-    { name: 'General', link: 'General' },
+    { name: 'Cinema', link: 'cinema' },
+    { name: 'Sports', link: 'sports' },
+    { name: 'Medicine', link: 'medicine' },
+    { name: 'General', link: 'general' },
   ];
 
   constructor() { }
