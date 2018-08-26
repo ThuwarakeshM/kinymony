@@ -1,3 +1,9 @@
-<p>
-  collection works!
-</p>
+<div class="grid-container">
+  <app-card 
+  class="grid-item" 
+  *ngFor="let item of items" 
+  [title]="item.title" 
+  [desc]="item.desc"
+  [img]="item.img"
+  [link]="item.link"></app-card>
+</div>

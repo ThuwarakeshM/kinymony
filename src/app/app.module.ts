@@ -7,13 +7,15 @@ import { HeaderComponent } from './header/header.component';
 import { CollectionComponent } from './collection/collection.component';
 import { DocumentComponent } from './document/document.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CollectionComponent,
-    DocumentComponent
+    DocumentComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
