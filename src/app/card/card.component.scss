@@ -1,6 +1,9 @@
 .container {
     flex-direction: column;
+    background: #ffffff;
     overflow: hidden;
+    border: 2px solid #353a40;
+    border-radius: 2%;
     * {
         text-align: center;
     }
@@ -12,6 +15,10 @@
     p {
         margin: .1em;
     }
+}
+.container:hover {
+    box-shadow: 2px 2px #888888;
+    border: 1px solid #5b749b;
 }
 
 a {
