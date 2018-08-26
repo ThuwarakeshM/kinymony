@@ -17,7 +17,7 @@ export class FireService {
     return this.db.list(lan, ref => ref.orderByChild('category').equalTo(cat).limitToLast(6)).valueChanges();
   }
 
-  getPost(lan: string, id: number) {
-    return this.db.list(lan, ref => ref.orderByKey().equalTo(id.toString())).valueChanges();
+  getPost(lan: string, id: string) {
+    return this.db.list(lan, ref => ref.orderByKey().equalTo(id)).valueChanges();
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Doc } from '../models/document';
+import { FireService } from '../fire.service';
 
 @Component({
   selector: 'app-document',
@@ -8,28 +8,20 @@ import { Doc } from '../models/document';
   styleUrls: ['./document.component.scss']
 })
 export class DocumentComponent implements OnInit {
+  lang = 'TA';
   docRef: string;
-  doc: Doc;
-  constructor(private router: ActivatedRoute) { }
+  doc;
+  constructor(
+    private router: ActivatedRoute,
+    private fireService: FireService
+  ) { }
 
   ngOnInit() {
     this.router.paramMap.subscribe((res) => {
       this.docRef = res.get('ref');
-      this.doc = {
-        title: this.docRef,
-        desc: this.docRef + ' Description',
-        imageURL: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-        videoURL: null,
-        sections: [
-          {
-            title: 'Section1',
-            desc: 'Desc1',
-            imageURL: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-            videoURL: null,
-            sections: null
-          }
-        ]
-      };
+      this.fireService.getPost(this.lang, this.docRef).subscribe((a) => {
+        this.doc = a[0];
+      });
     });
   }
 

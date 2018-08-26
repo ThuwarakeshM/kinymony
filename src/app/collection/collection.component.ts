@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FireService } from '../fire.service';
 
 @Component({
   selector: 'app-collection',
@@ -9,52 +10,28 @@ import { ActivatedRoute } from '@angular/router';
 export class CollectionComponent implements OnInit {
 
   cat: string;
+  lang = 'TA';
 
-  items = [
-    {
-      title: 'Item1',
-      desc: 'A wonderful Item',
-      img: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      link: '/doc/item1'
-    },
-    {
-      title: 'Item2',
-      desc: 'A wonderful Item',
-      img: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      link: '/doc/item2'
-    },
-    {
-      title: 'Item3',
-      desc: 'A wonderful Item oisadfoai sdnmflskafoisa dnmfoasd fiomasdklfsa iodfklasdfuiop awehf komawdiocvjhsadokv masdfklghoaesfmklsdafoisamkdfljwaeoifnrweklafncoSUZDJfsoajdfoijh',
-      img: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      link: '/doc/item3'
-    },
-    {
-      title: 'Item4',
-      desc: 'A wonderful Item',
-      img: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      link: '/doc/item4'
-    },
-    {
-      title: 'Item5',
-      desc: 'A wonderful Item',
-      img: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      link: '/doc/item5'
-    },
-    {
-      title: 'Item6',
-      desc: 'A wonderful Item',
-      img: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      link: '/doc/item6'
-    },
-  ];
+  items: any[] = [];
 
-  constructor(private router: ActivatedRoute) {
+  constructor(
+    private router: ActivatedRoute,
+    private fireService: FireService
+  ) {
   }
 
   ngOnInit() {
     this.router.paramMap.subscribe((ref) => {
       this.cat = ref.get('cat');
+      if (this.cat) {
+        this.fireService.getRecentPostsOfCategory(this.lang, this.cat).subscribe((res) => {
+          this.items = res;
+        });
+      } else {
+        this.fireService.getRecentPosts(this.lang).subscribe((res) => {
+          this.items = res;
+        });
+      }
     });
   }
 
