@@ -1,3 +1,9 @@
-<p>
-  document works!
-</p>
+  <h1 *ngIf="doc.title">{{doc.title}}</h1>
+  <div class="image"><img [src]="doc.imageURL" *ngIf="doc.imageURL" /></div>
+  <p *ngIf="doc.desc">{{doc.desc}}</p>
+
+  <div *ngFor="let section of doc.sections">
+    <h3 *ngIf="section.title">{{section.title}}</h3>
+    <div class="image"><img [src]="section.imageURL" *ngIf="section.imageURL" /></div>
+    <p *ngIf="section.desc">{{section.desc}}</p>
+  </div>
