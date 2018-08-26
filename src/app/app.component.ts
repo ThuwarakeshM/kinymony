@@ -11,9 +11,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fireService.getPostByTitle('test').subscribe(res => {
-      console.log(res);
-    }
-    );
+    this.fireService.getPost('TA', 3).subscribe(res => {
+      res.forEach(val => {
+        console.log(val);
+      });
+    });
   }
 }
