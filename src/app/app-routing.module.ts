@@ -5,15 +5,15 @@ import { DocumentComponent } from './document/document.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':lang',
     component: CollectionComponent
   },
   {
-    path: ':cat',
+    path: ':lang/:cat',
     component: CollectionComponent
   },
   {
-    path: 'doc/:ref',
+    path: ':lang/:cat/:ref',
     component: DocumentComponent
   }
 ];

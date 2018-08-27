@@ -10,11 +10,11 @@ export class HeaderComponent implements OnInit {
   menuActive = false;
 
   links = [
-    { name: 'Politics', link: 'politics' },
-    { name: 'Cinema', link: 'cinema' },
-    { name: 'Sports', link: 'sports' },
-    { name: 'Medicine', link: 'medicine' },
-    { name: 'General', link: 'general' },
+    { name: 'Politics', link: 'en/politics' },
+    { name: 'Cinema', link: 'en/cinema' },
+    { name: 'Sports', link: 'en/sports' },
+    { name: 'Medicine', link: 'en/medicine' },
+    { name: 'General', link: 'en/general' },
   ];
 
   icon = faBars;

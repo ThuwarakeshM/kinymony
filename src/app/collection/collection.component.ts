@@ -10,7 +10,7 @@ import { FireService } from '../fire.service';
 export class CollectionComponent implements OnInit {
 
   cat: string;
-  lang = 'TA';
+  lang: string;
 
   items: any[] = [];
 
@@ -23,6 +23,7 @@ export class CollectionComponent implements OnInit {
   ngOnInit() {
     this.router.paramMap.subscribe((ref) => {
       this.cat = ref.get('cat');
+      this.lang = ref.get('lang');
       if (this.cat) {
         this.fireService.getRecentPostsOfCategory(this.lang, this.cat).subscribe((res) => {
           this.items = res;

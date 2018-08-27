@@ -8,7 +8,7 @@ import { FireService } from '../fire.service';
   styleUrls: ['./document.component.scss']
 })
 export class DocumentComponent implements OnInit {
-  lang = 'TA';
+  lang: string;
   docRef: string;
   doc;
   constructor(
@@ -18,6 +18,7 @@ export class DocumentComponent implements OnInit {
 
   ngOnInit() {
     this.router.paramMap.subscribe((res) => {
+      this.lang = res.get('lang');
       this.docRef = res.get('ref');
       this.fireService.getPost(this.lang, this.docRef).subscribe((a) => {
         this.doc = a[0];
