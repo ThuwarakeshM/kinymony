@@ -2,3 +2,29 @@
     display: flex;
     justify-content: center;
 }
+
+.content-container > * {
+    display: inline-block;
+}
+
+.adv-ver {
+    width: 10%
+}
+
+.main-content {
+    width: 80%;
+}
+
+.adv-rht {
+    float: right;
+}
+
+@media screen and (max-width: 900px) {
+    .adv-ver {
+        display: none !important;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+}
