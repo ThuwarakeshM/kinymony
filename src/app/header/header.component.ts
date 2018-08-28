@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -8,20 +8,25 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 })
 export class HeaderComponent implements OnInit {
   menuActive = false;
+  @Input() lang: string;
 
-  links = [
-    { name: 'Politics', link: 'en/politics' },
-    { name: 'Cinema', link: 'en/cinema' },
-    { name: 'Sports', link: 'en/sports' },
-    { name: 'Medicine', link: 'en/medicine' },
-    { name: 'General', link: 'en/general' },
-  ];
+  links: any[];
+  homeLink: string;
 
   icon = faBars;
 
   constructor() { }
 
   ngOnInit() {
+    this.links = [
+      { name: 'Politics', link: '/' + this.lang + '/politics' },
+      { name: 'Cinema', link: '/' + this.lang + '/cinema' },
+      { name: 'Sports', link: '/' + this.lang + '/sports' },
+      { name: 'Medicine', link: '/' + this.lang + '/medicine' },
+      { name: 'General', link: '/' + this.lang + '/general' },
+    ];
+
+    this.homeLink = '/' + this.lang;
   }
 
   toggleMenu() {
