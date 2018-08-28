@@ -1,9 +1,10 @@
-<div class="grid-container">
-  <app-card 
-  class="grid-item" 
-  *ngFor="let item of items" 
-  [title]="item.title" 
-  [desc]="item.desc"
-  [img]="item.img"
-  [link]="item.link"></app-card>
+<div class="adv-hor">adv-hor</div>
+<div class="content-container">
+  <div class="adv-ver">adv-ver</div>
+  <div class="main-content">
+    <div class="grid-container">
+      <app-card class="grid-item" *ngFor="let item of items" [title]="item.title" [desc]="item.desc" [img]="item.img" [link]="item.link"></app-card>
+    </div>
+  </div>
+  <div class="adv-ver adv-left">adv-ver</div>
 </div>

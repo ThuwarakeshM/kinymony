@@ -1,12 +1,33 @@
 .grid-container {
     display: grid;
-    grid-template-columns: 25% 25% 25%;
+    grid-template-columns: 33% 33% 33%;
     grid-gap: 20px;
     justify-content: center;
     margin-top:5px;
+}
+
+.content-container > * {
+    display: inline-block;
+}
+.adv-ver {
+    width: 10%;
+}
+.adv-left {
+    float: right;
+}
+
+.main-content {
+    width: 80%;
 }
 @media screen and (max-width: 900px) {
     .grid-container {
         grid-template-columns: 100%;
     }
+    .adv-ver {
+        display: none !important;
+    }
+    .main-content {
+        width: 100%;
+    }
 }
+
