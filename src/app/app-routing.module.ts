@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: ':lang/:cat/:ref',
     component: DocumentComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/en'
   }
 ];
 
