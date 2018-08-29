@@ -1,0 +1,39 @@
+.content {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 33% 33% 33%;
+    position: fixed;
+    top: 40vh;
+    padding: 0 5%;
+}
+
+.elem {
+    width: 80%;
+    margin: auto;
+    height: 50px;
+    color: aliceblue;
+}
+
+.elem-item:hover {
+    box-shadow: 2px 2px #888888;
+}
+.elem-item {
+    text-align: center;
+    background: #353a40;
+    border: 2px solid #353a40c7;
+    height: 50px;
+    line-height: 50px;
+    border-radius:15px;
+}
+
+a {
+    text-decoration: none;
+}
+ 
+h1 { 
+    color: #353a40;
+    text-align: center;
+    margin: auto;   
+    height: 200px;
+    line-height: 200px;
+}
