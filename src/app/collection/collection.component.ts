@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FireService } from '../fire.service';
 import { Meta, Title } from '@angular/platform-browser';
+import { InfoService } from '../info.service';
 
 @Component({
   selector: 'app-collection',
@@ -20,6 +21,7 @@ export class CollectionComponent implements OnInit {
     private fireService: FireService,
     private meta: Meta,
     private title: Title,
+    private info: InfoService
   ) {
 
   }
@@ -28,6 +30,7 @@ export class CollectionComponent implements OnInit {
     this.router.paramMap.subscribe((ref) => {
       this.cat = ref.get('cat');
       this.lang = ref.get('lang');
+      this.info.setLang(this.lang);
       if (this.cat) {
         this.fireService.getRecentPostsOfCategory(this.lang, this.cat).subscribe((res) => {
           this.items = res;

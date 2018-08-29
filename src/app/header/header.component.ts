@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { InfoService } from '../info.service';
 
 @Component({
   selector: 'app-header',
@@ -8,25 +9,35 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 })
 export class HeaderComponent implements OnInit {
   menuActive = false;
-  @Input() lang: string;
 
   links: any[];
   homeLink: string;
 
   icon = faBars;
 
-  constructor() { }
+  constructor(
+    private info: InfoService
+  ) {
+
+  }
 
   ngOnInit() {
-    this.links = [
-      { name: 'Politics', link: '/' + this.lang + '/politics' },
-      { name: 'Cinema', link: '/' + this.lang + '/cinema' },
-      { name: 'Sports', link: '/' + this.lang + '/sports' },
-      { name: 'Medicine', link: '/' + this.lang + '/medicine' },
-      { name: 'General', link: '/' + this.lang + '/general' },
-    ];
+    this.info.getLang().subscribe((res) => {
+      const lang = res;
+      this.links = [
+        { name: 'Politics', link: '/' + lang + '/politics' },
+        { name: 'Cinema', link: '/' + lang + '/cinema' },
+        { name: 'Sports', link: '/' + lang + '/sports' },
+        { name: 'Medicine', link: '/' + lang + '/medicine' },
+        { name: 'General', link: '/' + lang + '/general' },
+      ];
+      this.homeLink = '/' + lang;
 
-    this.homeLink = '/' + this.lang;
+    });
+
+
+
+
   }
 
   toggleMenu() {
