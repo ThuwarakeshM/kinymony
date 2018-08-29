@@ -40,23 +40,14 @@ export class CollectionComponent implements OnInit {
           this.items = res;
         });
       }
-      this.meta.removeTag('author');
-      this.meta.removeTag('keywords');
-      this.meta.removeTag('description');
-
-      this.title.setTitle('KinyMony: Latest News in India and Sri Lanka');
-
-      this.meta.addTags([
-        { name: 'author', content: 'kinymony_news_hub' },
-        {
-          name: 'keywords',
-          content: this.lang + 'news india lanka hot recent new interesting' + this.cat + ' '
-        },
-        {
-          name: 'description',
-          content: 'Hot recent news about ${this.cat ? this.cat : "everything"} in ${this.lang} in India and Sri Lanka'
-        },
-      ]);
+      this.title.setTitle('KinyMony: ' + (this.cat ? this.cat : 'General') + ' News in ' + this.lang);
+      this.meta.updateTag({ name: 'keywords', content: (this.cat ? this.cat : 'General') + ' news  india lanka hot latest' + this.lang });
+      this.meta.updateTag({
+        name: 'description', content: 'hot latest ' +
+          (this.cat ? this.cat : 'General') +
+          ' news in india and Sri Lanka in ' +
+          this.lang
+      });
     });
   }
 

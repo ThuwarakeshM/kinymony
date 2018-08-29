@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '../../node_modules/@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor() {
+  constructor(
+    private meta: Meta,
+    private title: Title
+  ) {
   }
 
   ngOnInit() {

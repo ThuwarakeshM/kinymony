@@ -14,7 +14,6 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
     this.info.getLang().subscribe((res) => {
-      console.log(res);
     });
   }
 
