@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FireService } from '../fire.service';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-collection',
@@ -16,8 +17,11 @@ export class CollectionComponent implements OnInit {
 
   constructor(
     private router: ActivatedRoute,
-    private fireService: FireService
+    private fireService: FireService,
+    private meta: Meta,
+    private title: Title,
   ) {
+
   }
 
   ngOnInit() {
@@ -33,6 +37,23 @@ export class CollectionComponent implements OnInit {
           this.items = res;
         });
       }
+      this.meta.removeTag('author');
+      this.meta.removeTag('keywords');
+      this.meta.removeTag('description');
+
+      this.title.setTitle('KinyMony: Latest News in India and Sri Lanka');
+
+      this.meta.addTags([
+        { name: 'author', content: 'kinymony_news_hub' },
+        {
+          name: 'keywords',
+          content: this.lang + 'news india lanka hot recent new interesting' + this.cat + ' '
+        },
+        {
+          name: 'description',
+          content: 'Hot recent news about ${this.cat ? this.cat : "everything"} in ${this.lang} in India and Sri Lanka'
+        },
+      ]);
     });
   }
 
