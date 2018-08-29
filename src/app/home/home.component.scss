@@ -5,6 +5,8 @@
     position: fixed;
     top: 40vh;
     padding: 0 5%;
+    grid-gap: 20px;
+
 }
 
 .elem {
@@ -24,6 +26,7 @@
     height: 50px;
     line-height: 50px;
     border-radius:15px;
+
 }
 
 a {
@@ -36,4 +39,10 @@ h1 {
     margin: auto;   
     height: 200px;
     line-height: 200px;
+}
+
+@media screen and (max-width: 900px) {
+    .content {
+        grid-template-columns: 100%;
+    }
 }
